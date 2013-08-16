@@ -35,6 +35,8 @@ app.engine('html', require('ejs').renderFile);
 
 app.get('/', routes.index);
 
+app.get('/posts', routes.posts);
+
 server = app.listen(3000, function(){
 });
 

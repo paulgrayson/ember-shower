@@ -4,27 +4,22 @@ App.Router.map(function() {
   // put your routes here
 });
 
+App.Store = DS.Store.extend({});
+
+var attr = DS.attr;
+
+App.Post = DS.Model.extend({
+  name: attr('string'),
+  body: attr('string'),
+  url: attr('string'),
+  visible: attr('boolean'),
+  created_at: attr('date') 
+});
+
 App.IndexRoute = Ember.Route.extend({
   model: function() {
-    // Demo posts
-    return {
-      posts: [
-        {
-          url: "this-is-post-1",
-          name: "Post 1",
-          body: "This is the body of post 1. This is not a summary",
-          visible: true,
-          created_at: new Date()
-        },
-        {
-          url: "and-post-2",
-          name: "Welcome to Post 2",
-          body: "Post 2 is much more interesting than post 1",
-          visible: true,
-          created_at: new Date()
-        }
-      ]
-    }
+    var posts = App.Post.find();
+    return {posts: posts};
   }
 });
 
