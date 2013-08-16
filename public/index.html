@@ -12,11 +12,13 @@
   <script type="text/x-handlebars">
     <div class="header-wrapper fixed-top">
       <div id="header" class="header page-size page-margin">
-        <a href="/" id="blog-name" class="logo">{{blog.name}}</a>
+        <a href="/" id="blog-name" class="logo">Bananas are the only fruit</a>
       </div>
     </div>
 
+    <div class="page-size page-margin">
     {{outlet}}
+    </div>
 
     <div id="footer" class="footer">
       <!-- loginButtons -->
@@ -27,7 +29,10 @@
   <script type="text/x-handlebars" data-template-name="index">
     {{#each post in posts}}
       <div class="row item col-3">
-        {{post.name}}</li>
+        <div class="postSummary">
+          <h2><a {{bindAttr href="post.url"}} class='post-link'>{{post.name}}</a></h2>
+          <p>{{{summary post.body}}}</p>
+        </div>
       </div>
       <div style="clear: both"/>
     {{/each}}

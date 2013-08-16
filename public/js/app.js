@@ -8,7 +8,6 @@ App.IndexRoute = Ember.Route.extend({
   model: function() {
     // Demo posts
     return {
-      blog: { name: 'Bananas are the only fruit' },
       posts: [
         {
           url: "this-is-post-1",
@@ -27,4 +26,9 @@ App.IndexRoute = Ember.Route.extend({
       ]
     }
   }
+});
+
+Ember.Handlebars.helper('summary', function(text) {
+  words = text.split(" ");
+  return words.length >= 60 ? _.first(words,60).join(' ') + "..." : text;
 });
