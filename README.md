@@ -3,7 +3,13 @@ ember-shower
 
 A blog app in ember.js. Non-trivial example to learn/play with.
 
-Requires Less:
+**Work in Progress**
+
+Less:
 lessc css/shower.less
+
+Mongo:
+mkdir .db
+mongod -dbpath .db/
 
 
