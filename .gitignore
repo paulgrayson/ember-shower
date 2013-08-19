@@ -2,4 +2,5 @@
 *.swo
 *.log
 node_modules
+.db/
 
